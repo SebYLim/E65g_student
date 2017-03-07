@@ -234,7 +234,7 @@ struct Grid {
         // ** Your Problem 7 code goes here! **
         self.rows = rows
         self.cols = cols
-        cells = [[Cell]](repeatElement([Cell](repeatElement(Cell(), count: self.rows), count: self.cols)))
+        cells = [[Cell]](repeatElement([Cell](repeatElement(Cell(), count: rows), count: cols)))
         map2(rows, cols) { row, col in cells
         // ** Your Problem 8 code goes here! **
             Position(row, col)
@@ -381,7 +381,7 @@ extension Grid {
 // and replace `.empty` with your one line of code
 var grid = Grid(10, 10) { row, col in
 //   // ** Your Problem 13 code goes here! **
-    return arc4random(3) == 2 ? .alive : .empty
+    return arc4random_uniform(3) == 2 ? .alive : .empty
 }
 grid.numLiving
 
@@ -413,12 +413,12 @@ extension Grid {
     subscript (row: Int, col: Int) -> Cell? {
         get {
             // ** Your Problem 14 `get` code goes here! replace the following line **
-            return 1
+            guard let myCellRow = Cell! else {return self[1,1]}
         }
         set {
             // ** Your Problem 14 `set` code goes here! replace the following line **
-            guard let row <= self.rows && row >= 0 else{return 1}
-            guard let col <= self.cols && col >=0 else{return 1}
+            guard let row <= self.rows && row >= 0 else{return self[1,1]}
+            guard let col <= self.cols && col >=0 else{return self[1,1]}
         }
     }
 }
@@ -431,7 +431,7 @@ extension Grid {
  */
 // Problem 15.1 answer goes here
 /*
- Cell is of type structure.
+ Cell is an optional.
  */
 /*:
  2. what the type of `self[row,col]`?
@@ -445,14 +445,14 @@ extension Grid {
  */
 // Problem 15.3 comment goes here
 /*
- One consists of two types of integers combined together and the other is simliar to a class.
+ Optionals are able to be nil and self is not.
  */
 /*:
  4. under what circumstances will the `else` clause will be executed?
  */
 // Problem 15.4 comment goes here
 /*
- When there are no living neighbors around the cell.
+ When an invalid grid coordinate is given (i.e. it is out of the bounds of the array).
  */
 /*:
  ## Problem 16:
