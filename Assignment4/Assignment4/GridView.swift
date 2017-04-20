@@ -4,6 +4,7 @@
 //
 //  Created by Sebastian Lim on 4/20/17.
 //  Copyright © 2017 Harvard Division of Continuing Education. All rights reserved.
+//  App Icon Credit: https://icons8.com/web-app/47036/runway
 //
 
 import UIKit

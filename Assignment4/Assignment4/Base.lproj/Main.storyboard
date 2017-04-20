@@ -273,8 +273,8 @@
         </scene>
     </scenes>
     <resources>
-        <image name="Picture-48.png" width="48" height="48"/>
+        <image name="Picture-48.png" width="40" height="40"/>
         <image name="Right-50.png" width="50" height="50"/>
-        <image name="Settings-48.png" width="48" height="48"/>
+        <image name="Settings-48.png" width="35" height="35"/>
     </resources>
 </document>

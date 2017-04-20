@@ -5,6 +5,7 @@
 //  Created by Sebastian Lim on 4/19/17.
 //  Copyright © 2017 Harvard Division of Continuing Education. All rights reserved.
 //  Tab Bar Icon Credit: https://icons8.com/web-app/5570/picture
+//  App Icon Credit: https://icons8.com/web-app/47036/runway
 //
 
 import UIKit

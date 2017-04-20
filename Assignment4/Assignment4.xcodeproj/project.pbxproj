@@ -49,6 +49,16 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		D92254F01EA94C2800B7C77F /* Icons */ = {
+			isa = PBXGroup;
+			children = (
+				D92254EC1EA942B200B7C77F /* Settings-48.png */,
+				D92254EA1EA9424E00B7C77F /* Picture-48.png */,
+				D92254E21EA9413400B7C77F /* Right-50.png */,
+			);
+			name = Icons;
+			sourceTree = "<group>";
+		};
 		FBAD2DFA1E2BE38C008207C0 = {
 			isa = PBXGroup;
 			children = (
@@ -78,9 +88,7 @@
 				FBAD2E0F1E2BE38C008207C0 /* Assets.xcassets */,
 				FBAD2E111E2BE38C008207C0 /* LaunchScreen.storyboard */,
 				FBAD2E141E2BE38C008207C0 /* Info.plist */,
-				D92254E21EA9413400B7C77F /* Right-50.png */,
-				D92254EA1EA9424E00B7C77F /* Picture-48.png */,
-				D92254EC1EA942B200B7C77F /* Settings-48.png */,
+				D92254F01EA94C2800B7C77F /* Icons */,
 			);
 			path = Assignment4;
 			sourceTree = "<group>";
