@@ -1,6 +1,8 @@
 //
 //  Grid.swift
 //
+import Foundation
+
 public typealias GridPosition = (row: Int, col: Int)
 public typealias GridSize = (rows: Int, cols: Int)
 
@@ -140,4 +142,78 @@ public extension Grid {
         default: return .empty
         }
     }
+}
+
+protocol EngineDelegate {
+    func engineDidUpdate(withGrid: GridProtocol)
+}
+
+protocol EngineProtocol {
+    var delegate: EngineDelegate? {get set}
+    var grid: GridProtocol {get}
+    var refreshRate: Double {get set}
+    var rows: Int {get set}
+    var cols: Int {get set}
+    func step() -> GridProtocol
+}
+
+class StandardEngine: EngineProtocol {
+    static var engine: StandardEngine = StandardEngine(rows: 10, cols: 10)
+    
+    var grid: GridProtocol
+    var delegate: EngineDelegate?
+    var rows: Int
+    var cols: Int
+    
+    var timer: Timer?
+    var refreshRate: TimeInterval = 0.0 {
+        didSet {
+            if refreshRate > 0.0 {
+                if #available(iOS 10.0, *) {
+                    timer = Timer.scheduledTimer(
+                        withTimeInterval: refreshRate,
+                        repeats: true
+                    ) { (t: Timer) in
+                        _ = self.step()
+                    }
+                } else {
+                    // Fallback on earlier versions
+                }
+            }
+            else {
+                timer?.invalidate()
+                timer = nil
+            }
+        }
+    }
+    
+        
+        init(rows: Int, cols: Int) {
+            self.grid = Grid(rows, cols, cellInitializer:{_,_ in .empty})
+            self.rows = rows
+            self.cols = cols
+        }
+        
+        func step() -> GridProtocol {
+            let newGrid = grid.next()
+            grid = newGrid
+            delegate?.engineDidUpdate(withGrid: grid)
+            let nc = NotificationCenter.default
+            let name = Notification.Name(rawValue: "EngineUpdate")
+            let n = Notification(name: name,
+                                        object: nil,
+                                        userInfo: ["engine" : self])
+                                        nc.post(n)
+            return grid
+        }
+        
+        func updateGridSize(size: Int) {
+            StandardEngine.engine.rows = size
+            StandardEngine.engine.cols = size
+            delegate?.engineDidUpdate(withGrid: self.grid)
+        }
+        
+        func getEngine() -> StandardEngine {
+            return StandardEngine.engine
+        }
 }

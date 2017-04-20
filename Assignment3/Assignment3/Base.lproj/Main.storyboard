@@ -23,7 +23,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Awn-H8-F7S" userLabel="GridView" customClass="GridView" customModule="Assignment3" customModuleProvider="target">
-                                <rect key="frame" x="67" y="213" width="240" height="240"/>
+                                <rect key="frame" x="67" y="213.5" width="240" height="240"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <constraints>
                                     <constraint firstAttribute="width" secondItem="Awn-H8-F7S" secondAttribute="height" multiplier="1:1" id="h0m-5L-NKA"/>
@@ -50,7 +50,7 @@
                                 </userDefinedRuntimeAttributes>
                             </view>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Mrw-gA-LwJ">
-                                <rect key="frame" x="67" y="150.5" width="32" height="30"/>
+                                <rect key="frame" x="67" y="151" width="32" height="30"/>
                                 <state key="normal" title="Step"/>
                                 <connections>
                                     <action selector="stepButtonAction:" destination="BYZ-38-t0r" eventType="touchUpInside" id="UHP-jH-Gmf"/>

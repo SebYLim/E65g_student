@@ -1,25 +1,27 @@
 //
-//  SecondViewController.swift
+//  InstrumentationViewController.swift
 //  Assignment4
 //
-//  Created by Van Simmons on 1/15/17.
+//  Created by Sebastian Lim on 4/19/17.
 //  Copyright © 2017 Harvard Division of Continuing Education. All rights reserved.
+//  Tab Bar Icon Credit: https://icons8.com/web-app/355/Right
 //
 
 import UIKit
 
-class SecondViewController: UIViewController {
+class InstrumentationViewController: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        // Do any additional setup after loading the view, typically from a nib.
+        // Do any additional setup after loading the view.
     }
 
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
     }
+    
 
+    
 
 }
-
