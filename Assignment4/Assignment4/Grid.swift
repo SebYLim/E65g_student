@@ -145,6 +145,28 @@ public extension Grid {
     }
 }
 
+//From Section Help, Couldn't Get it Working
+/*
+public extension Grid {
+    public static func makeCellInitializer(intPairsDict: [String:[[Int]]]) -> (GridPosition) -> CellState {
+        
+        if intPairsDict.count == 0 {
+            return{_,_ in .empty}
+        }
+        
+        let aliveIntPairs = intPairsDict["alive"] ?? []
+        let bornIntPairs = intPairsDict["born"] ?? []
+        let diedIntPairs = intPairsDict["died"] ?? []
+        
+        func cellInitializer(pos: GridPosition) -> CellState {
+            let intPair = [pos.row, pos.col]
+            if aliveIntPairs.contains(where: ($0 == intPair} {return .alive}
+            if bornIntPairs.contains(where: {$0 == intPair}) {return .born}
+            if diedIntPairs.contains(where: {$0 == intPair}) {return .died }
+        }
+}
+*/
+
 protocol EngineDelegate {
     func engineDidUpdate(withGrid: GridProtocol)
 }
@@ -214,7 +236,4 @@ class StandardEngine: EngineProtocol {
             delegate?.engineDidUpdate(withGrid: self.grid)
         }
         
-        func getEngine() -> StandardEngine {
-            return StandardEngine.engine
-        }
 }
